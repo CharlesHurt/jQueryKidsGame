@@ -6,6 +6,7 @@ body {
 div {
 
 }
+
 span {
   font-family:Comic Sans MS;
   font-size:1.1em;
@@ -28,8 +29,14 @@ span {
   border:2px solid red;
 }
 
-.cImage {
+.cUseLess {
+  padding:5px;
+  color:gray;
+  background-color:green;
+  border:2px solid gray;
+}
 
+.cImage {
   margin:5px;
 }
 

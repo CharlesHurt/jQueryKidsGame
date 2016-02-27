@@ -19,23 +19,29 @@ function init() {
     $reRollRef.text('Re-Roll (' + (reRolls-1) + ' left)')
     if (reRolls > 1) {
       reRolls--
-
       showSneetches()
     }
   })
 
   $checkRef.click(function(e) {
-
+    console.log(runningTotal + '/' + sneetchCount)
     if (runningTotal === sneetchCount) {
-      alert('aa!')
+      $('.cSelected').off("click")
+      $('.cSelected').addClass("cUseLess")
+      $('.cSelected').toggleClass("cSelected")
+      runningTotal = 0
+      // Use off to disable the used numbers
+      // And change their data
+
+      //console.log('#done:' + $numsRef.hasClass('cSelected').length)
+      showSneetches()
+    } else {
+      alert('Not yet!')
     }
-    console.log(runningTotal + '===' +sneetchCount)
   })
 
   $restartRef.click(function(e) {
-
     resetGame()
-    //console.log("Nnnnn");
   })
 
   $numsRef.click(function(e) {
@@ -61,6 +67,7 @@ function getRandom() {
 function resetGame() {
   runningTotal = 0
 
+  $('.cNum').removeClass('cUseLess')
   $('.cNum').removeClass('cSelected')
   showSneetches()
 }
