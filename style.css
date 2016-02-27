@@ -1,18 +1,17 @@
 body {
   font-size:xx-large;
+  background-color:#4ac0e8;
 }
 
+div {
+
+}
 span {
   font-family:Comic Sans MS;
   font-size:1.1em;
   border-radius:5px;
   padding:5px;
   margin:5px;
-}
-.cSelected {
-  padding:5px;
-  color:gray;
-  border:12px solid red;
 }
 
 .cNum {
@@ -22,8 +21,15 @@ span {
   font-size:2em;
 }
 
+.cSelected {
+  padding:5px;
+  color:gray;
+  background-color:green;
+  border:2px solid red;
+}
+
 .cImage {
-   
+
   margin:5px;
 }
 

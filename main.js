@@ -1,17 +1,52 @@
 'use strict'
-var restartRef
-var checkRef
-var reRollRef
-var numsRef
+var $restartRef
+var $checkRef
+var $reRollRef
+var $numsRef
+var sneetchCount = 0
+var runningTotal=0
+var reRolls = 3
 $(document).ready(init)
 
 function init() {
-  restartRef = $('#IdRestart')
-  checkRef = $('#IdCheck')
-  reRollRef  = $('#IdRe-Roll')
-  numsRef  = $('.cNum')
+  // style='background-color:#4ac0e8'
+  $restartRef = $('#IdRestart')
+  $checkRef = $('#IdCheck')
+  $reRollRef  = $('#IdReRoll')
+  $numsRef  = $('.cNum')
 
-  numsRef.on('click', toggleSelected)
+  $reRollRef.click(function(e) {
+    $reRollRef.text('Re-Roll (' + (reRolls-1) + ' left)')
+    if (reRolls > 1) {
+      reRolls--
+
+      showSneetches()
+    }
+  })
+
+  $checkRef.click(function(e) {
+
+    if (runningTotal === sneetchCount) {
+      alert('aa!')
+    }
+    console.log(runningTotal + '===' +sneetchCount)
+  })
+
+  $restartRef.click(function(e) {
+
+    resetGame()
+    //console.log("Nnnnn");
+  })
+
+  $numsRef.click(function(e) {
+    var cur = $(this)
+    if (cur.hasClass('cSelected')) {
+      runningTotal += cur.data('num')*-1
+    } else {
+      runningTotal += cur.data('num')*1
+    }
+    cur.toggleClass('cSelected')
+  })
   resetGame()
 }
 
@@ -24,16 +59,19 @@ function getRandom() {
 }
 
 function resetGame() {
+  runningTotal = 0
+
   $('.cNum').removeClass('cSelected')
   showSneetches()
 }
 
 function showSneetches() {
-  $("#IdsneetchHost").html('')
-  var count = getRandom()
+  $("#IdSneetchHost").html('')
+  sneetchCount = getRandom()
+
   var $sneetches = []
   var sneetchName
-  for (var i = 0; i < count; i++) {
+  for (var i = 0; i < sneetchCount; i++) {
     var imgText = '<img class="cImage" src="s' + i + '.png">'
     $sneetches.push($(imgText))
   }
