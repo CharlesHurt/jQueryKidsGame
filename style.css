@@ -1,0 +1,34 @@
+body {
+  font-size:xx-large;
+}
+
+span {
+  font-family:Comic Sans MS;
+  font-size:1.1em;
+  border-radius:5px;
+  padding:5px;
+  margin:5px;
+}
+.cSelected {
+  padding:5px;
+  color:gray;
+  border:12px solid red;
+}
+
+.cNum {
+  border:1px solid gray;
+  background-color:#009d96;
+  color:yellow;
+  font-size:2em;
+}
+
+.cImage {
+   
+  margin:5px;
+}
+
+.cImage2 {
+
+
+  margin:5px;
+}
