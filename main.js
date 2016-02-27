@@ -33,8 +33,11 @@ function init() {
       // Use off to disable the used numbers
       // And change their data
 
-      //console.log('#done:' + $numsRef.hasClass('cSelected').length)
-      showSneetches()
+      if ($('.cUseLess').length === 9) {
+        alert('You won!')
+      } else {
+        showSneetches()
+      }
     } else {
       alert('Not yet!')
     }
@@ -52,7 +55,9 @@ function init() {
       runningTotal += cur.data('num')*1
     }
     cur.toggleClass('cSelected')
+
   })
+
   resetGame()
 }
 
